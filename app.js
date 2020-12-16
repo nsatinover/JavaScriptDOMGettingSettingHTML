@@ -1,4 +1,5 @@
-const btnList =document.querySelector('#toggleList');
+const btnList = document.querySelector('#toggleList');
+const listDiv = document.querySelector('.list');
 const descriptionInput = document.querySelector('input.description');
 const descriptionP = document.querySelector('p.description');
 const descriptionBtn = document.querySelector('button.description');
@@ -9,6 +10,34 @@ const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 
+const listItems = document.getElementsByTagName('li');
+
+
+listDiv.addEventListener('mouseover', (event) => {
+    if(event.target.tagName == 'LI'){
+        event.target.textContent = event.target.textContent.toUpperCase();
+
+    }
+});
+
+listDiv.addEventListener('mouseout', (event) => {
+    if(event.target.tagName == 'LI'){
+    event.target.textContent = event.target.textContent.toLowerCase();
+    }
+});
+
+// for (let i = 0; i < listItems.length; i++) {
+//     const thisItem = listItems[i];
+
+//     thisItem.addEventListener('mouseover', () => {
+//         thisItem.textContent = thisItem.textContent.toUpperCase();
+//     });
+
+//     thisItem.addEventListener('mouseout', () => {
+//         thisItem.textContent = thisItem.textContent.toLowerCase();
+//     });
+
+// }
 
 // button.addEventListener('click', () => {
 //     p.textContent = input.value + ':';
@@ -24,7 +53,7 @@ descriptionBtn.addEventListener('click', () => {
 
 btnList.addEventListener('click', () => {
     const divList = document.querySelector('div.list');
-    if(divList.style.display == 'none'){
+    if (divList.style.display == 'none') {
         divList.style.display = 'block';
         btnList.textContent = 'Hide List';
     }
